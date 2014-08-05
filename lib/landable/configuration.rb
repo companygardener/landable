@@ -1,6 +1,7 @@
 module Landable
   class Configuration
     attr_accessor :api_url, :public_url
+
     attr_writer :api_namespace, :public_namespace
     attr_writer :api_host, :public_host
     attr_writer :categories
@@ -68,13 +69,22 @@ module Landable
     def categories
       # default categories
       @categories ||= {
-        'Affiliates' => '',
-        'PPC' => 'Pay-per-click',
-        'SEO' => 'Search engine optimization',
-        'Social' => '',
-        'Email' => '',
+        'Affiliates'  => '',
+        'PPC'         => 'Pay-per-click',
+        'SEO'         => 'Search engine optimization',
+        'Social'      => '',
+        'Email'       => '',
         'Traditional' => '',
+        'Local'       => '',
       }
+    end
+
+    def local_enabled
+      @local_enabled ||= false
+    end
+
+    def local_enabled=(val)
+      raise ArgumentError.new("Landable::Configuration#local_enabled= only accepts true or false") unless [true, false].include? val
     end
 
     def partials_to_templates

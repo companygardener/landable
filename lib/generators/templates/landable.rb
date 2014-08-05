@@ -26,6 +26,16 @@ Landable.configure do |config|
   # Set to :html to track only HTML requests.
   # config.traffic_enabled = true
 
+  # Dependencies for local support
+  #   * brew install postgis
+  #   * psql -d DATABASE -c "CREATE EXTENSION postgis;"
+  #   * psql -d DATABASE -c "CREATE EXTENSION postgis_topology;"
+  #   * psql -d DATABASE -c "CREATE EXTENSION fuzzystrmatch;"
+  #   * psql -d DATABASE -c "CREATE EXTENSION postgis_tiger_geocoder;"
+  #
+  # Uncomment to enable local support
+  # config.local_enabled = true
+
   # If you're using Landable with Publicist, add its url here. (required for screenshots)
   # config.publicist_url = 'http://publicist.dev/'
 
