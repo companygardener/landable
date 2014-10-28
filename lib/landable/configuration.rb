@@ -83,8 +83,9 @@ module Landable
       @local_enabled ||= false
     end
 
-    def local_enabled=(val)
-      raise ArgumentError.new("Landable::Configuration#local_enabled= only accepts true or false") unless [true, false].include? val
+    def local_enabled=(value)
+      raise ArgumentError.new("Landable::Configuration#local_enabled= only accepts true or false") unless [true, false].include? value
+      @local_enabled = value
     end
 
     def partials_to_templates
